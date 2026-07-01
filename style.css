@@ -1,9 +1,3 @@
-/* =========================================================
-   PROJETO BFO - V2
-   STYLE.CSS - PARTE 1/3
-   Topo, identidade, hero, foto e painel lateral
-========================================================= */
-
 * {
   margin: 0;
   padding: 0;
@@ -14,82 +8,96 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #06111f;
-  color: #ffffff;
+:root {
+  --azul: #071b2f;
+  --azul-2: #0d2d4d;
+  --dourado: #c7a441;
+  --dourado-2: #f0d47a;
+  --branco: #ffffff;
+  --cinza: #e8eaed;
+  --texto: #d7dde5;
+  --grafite: #111827;
 }
 
-/* =========================
-   TOPO FIXO
-========================= */
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--azul);
+  color: var(--branco);
+}
 
 .topo {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 96px;
-  padding: 14px 4.5%;
-  background: rgba(3, 12, 24, 0.97);
-  border-bottom: 1px solid #c8a64a;
+  height: 112px;
+  padding: 12px 5%;
+  background: rgba(7, 27, 47, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(199, 164, 65, 0.45);
   display: flex;
   align-items: center;
   gap: 28px;
   z-index: 1000;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
-.identidade {
+.marca {
   display: flex;
   align-items: center;
   gap: 16px;
-  min-width: 330px;
+  min-width: 350px;
 }
 
-.logo-bfo {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 48px;
-  font-weight: bold;
-  color: #d4af37;
-  border: 2px solid #d4af37;
-  padding: 8px 16px;
-  letter-spacing: 2px;
-  line-height: 1;
-  box-shadow: inset 0 0 18px rgba(212,175,55,0.12);
+.logo-box {
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.nome-marca strong {
+.logo-img {
+  width: 125px;
+  height: auto;
   display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 22px;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.45));
+  transition: .35s;
+}
+
+.logo-img:hover {
+  transform: scale(1.03);
+}
+
+.marca-texto strong {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 23px;
   line-height: 1.05;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--branco);
 }
 
-.nome-marca span {
+.marca-texto span {
   display: block;
   margin-top: 6px;
-  color: #d4af37;
-  font-size: 13px;
+  color: var(--dourado);
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
 }
 
 .menu {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 23px;
+  gap: 20px;
 }
 
 .menu a {
-  color: #ffffff;
+  color: var(--branco);
   text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  font-size: 13px;
-  font-weight: bold;
+  letter-spacing: .6px;
   position: relative;
   padding: 8px 0;
 }
@@ -99,58 +107,55 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 0;
   height: 2px;
-  background: #d4af37;
-  transition: 0.25s;
+  width: 0;
+  background: var(--dourado);
+  transition: .25s;
 }
 
 .menu a:hover {
-  color: #d4af37;
+  color: var(--dourado);
 }
 
 .menu a:hover::after {
   width: 100%;
 }
 
-.simbolos {
+.idiomas {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  color: #d4af37;
-  margin-left: 10px;
+  gap: 6px;
 }
 
-.simbolo-contabilidade,
-.simbolo-direito {
-  font-size: 42px;
-  line-height: 1;
+.idioma {
+  border: 1px solid rgba(199,164,65,.55);
+  background: transparent;
+  color: var(--branco);
+  padding: 7px 9px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
 }
 
-.separador {
-  width: 1px;
-  height: 60px;
-  background: #d4af37;
-  opacity: 0.75;
+.idioma.ativo,
+.idioma:hover {
+  background: var(--dourado);
+  color: var(--azul);
 }
-
-/* =========================
-   HERO
-========================= */
 
 .hero {
   position: relative;
   min-height: 100vh;
-  padding: 150px 4.5% 0;
-  background:
-    linear-gradient(90deg, rgba(3,12,24,.98) 0%, rgba(5,18,34,.94) 42%, rgba(5,18,34,.76) 100%),
-    radial-gradient(circle at 67% 42%, rgba(34,83,130,.55), transparent 45%);
+  padding: 160px 5% 40px;
   display: grid;
-  grid-template-columns: 1.05fr 0.8fr 280px;
-  gap: 30px;
+  grid-template-columns: 1.05fr .78fr 260px;
   align-items: center;
+  gap: 34px;
   overflow: hidden;
-  border-bottom: 1px solid rgba(212,175,55,0.55);
+  background:
+    radial-gradient(circle at 72% 45%, rgba(199,164,65,.18), transparent 24%),
+    radial-gradient(circle at 70% 42%, rgba(32, 87, 140, .48), transparent 38%),
+    linear-gradient(120deg, #04101e 0%, #071b2f 48%, #0b2f50 100%);
+  border-bottom: 1px solid rgba(199,164,65,.45);
 }
 
 .hero::before {
@@ -158,869 +163,754 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(120deg, transparent 0%, rgba(212,175,55,.08) 48%, transparent 50%),
-    radial-gradient(circle at 85% 25%, rgba(212,175,55,.10), transparent 30%);
+    linear-gradient(115deg, transparent 0%, rgba(199,164,65,.07) 48%, transparent 51%),
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.05), transparent 28%);
   pointer-events: none;
 }
 
-.marca-dagua {
+.hero-bg-bfo {
   position: absolute;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 210px;
-  font-weight: bold;
-  color: rgba(255,255,255,0.045);
-  left: 36%;
-  top: 30%;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 260px;
+  font-weight: 700;
+  letter-spacing: 12px;
+  color: rgba(255,255,255,.035);
+  right: 15%;
+  top: 23%;
   z-index: 0;
-  letter-spacing: 8px;
 }
 
-.hero-texto,
-.hero-imagem,
-.painel-lateral {
+.hero-conteudo,
+.hero-foto,
+.hero-painel {
   position: relative;
   z-index: 2;
 }
 
-.tag {
-  color: #d4af37;
+.hero-tag {
+  color: var(--dourado);
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1.8px;
-  font-size: 15px;
-  font-weight: bold;
-  margin-bottom: 22px;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin-bottom: 24px;
 }
 
 .hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  color: #ffffff;
-  font-size: 62px;
-  line-height: 1.08;
-  letter-spacing: 3px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 68px;
+  line-height: .98;
   text-transform: uppercase;
-  margin-bottom: 26px;
-  text-shadow: 0 10px 28px rgba(0,0,0,0.45);
+  letter-spacing: 4px;
+  margin-bottom: 24px;
 }
 
 .hero h1::after {
   content: "";
   display: block;
-  width: 145px;
+  width: 150px;
   height: 3px;
-  background: #d4af37;
-  margin-top: 22px;
+  background: var(--dourado);
+  margin-top: 24px;
 }
 
-.hero h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  color: #d4af37;
-  font-size: 25px;
-  line-height: 1.45;
-  text-transform: uppercase;
-  margin-bottom: 26px;
-  max-width: 730px;
+.hero-slogan {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--dourado-2);
+  font-size: 34px;
+  margin-bottom: 22px;
 }
 
-.descricao {
+.hero-descricao {
+  max-width: 720px;
   font-size: 18px;
   line-height: 1.75;
-  color: #f1f5f9;
-  max-width: 720px;
+  color: var(--texto);
   margin-bottom: 34px;
 }
 
-/* =========================
-   BOTÕES
-========================= */
-
-.botoes {
+.hero-botoes {
   display: flex;
-  gap: 18px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
 .botao {
   display: inline-block;
-  padding: 15px 30px;
-  border-radius: 6px;
+  padding: 15px 28px;
+  border-radius: 4px;
   text-decoration: none;
   text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  transition: 0.25s ease;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .7px;
+  transition: .25s;
 }
 
-.principal {
-  background: linear-gradient(135deg, #f0c85a, #b8862b);
-  color: #06111f;
-  box-shadow: 0 10px 24px rgba(212,175,55,0.25);
+.botao-principal {
+  background: linear-gradient(135deg, var(--dourado-2), var(--dourado));
+  color: var(--azul);
+  box-shadow: 0 12px 28px rgba(199,164,65,.25);
 }
 
-.secundario {
-  border: 1px solid #d4af37;
-  color: #d4af37;
-  background: rgba(3,12,24,0.35);
+.botao-secundario {
+  border: 1px solid var(--dourado);
+  color: var(--dourado);
+  background: rgba(7,27,47,.35);
 }
 
 .botao:hover {
   transform: translateY(-3px);
-  filter: brightness(1.08);
 }
 
-/* =========================
-   FOTO
-========================= */
-
-.hero-imagem {
-  align-self: end;
+.hero-foto {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
 }
 
-.hero-imagem img {
+.foto-moldura {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.foto-moldura img {
   width: 100%;
-  max-width: 455px;
-  max-height: 640px;
-  object-fit: contain;
-  filter: drop-shadow(0 28px 50px rgba(0,0,0,0.65));
+  max-width: 485px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 28px 48px rgba(0,0,0,.65));
+  transition: .35s;
 }
 
-/* =========================
-   PAINEL LATERAL
-========================= */
+.foto-moldura img:hover {
+  transform: scale(1.015);
+}
 
-.painel-lateral {
-  border: 1px solid #d4af37;
+.hero-painel {
+  border: 1px solid rgba(199,164,65,.72);
   border-radius: 16px;
-  padding: 24px 24px;
-  background: rgba(3,12,24,0.72);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+  background: rgba(3, 12, 24, .68);
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  box-shadow: 0 22px 50px rgba(0,0,0,.35);
 }
 
-.painel-lateral div {
+.hero-painel div {
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(212,175,55,0.55);
+  gap: 16px;
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(199,164,65,.38);
 }
 
-.painel-lateral div:last-child {
+.hero-painel div:last-child {
   border-bottom: none;
 }
 
-.painel-lateral .icone {
-  color: #d4af37;
-  font-size: 32px;
-  width: 42px;
+.hero-painel span {
+  width: 38px;
+  color: var(--dourado);
+  font-size: 25px;
   text-align: center;
 }
 
-.painel-lateral p {
-  text-transform: uppercase;
-  font-size: 17px;
+.hero-painel p {
+  font-size: 15px;
   line-height: 1.35;
-  font-weight: bold;
-  color: #ffffff;
-}
-/* =========================================================
-   STYLE.CSS - PARTE 2/3
-   Pilares, seções, perícias, cards, trajetória, formação
-========================================================= */
-
-/* =========================
-   PILARES
-========================= */
-
-.pilares {
-  background: #f7f7f7;
-  color: #111827;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
-  padding: 42px 4.5%;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--branco);
 }
 
-.pilares article {
+.secao {
+  padding: 90px 5%;
   background: #ffffff;
-  border: 1px solid rgba(184, 134, 43, 0.35);
-  border-radius: 12px;
-  padding: 30px;
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 22px;
-  align-items: center;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  color: var(--grafite);
 }
 
-.pilar-icone {
-  color: #b8862b;
-  font-size: 62px;
-  line-height: 1;
+.secao.escura {
+  background: linear-gradient(135deg, #04101e, var(--azul));
+  color: var(--branco);
+}
+
+.titulo-secao {
+  max-width: 1100px;
+  margin: 0 auto 48px;
   text-align: center;
 }
 
-.pilares h3 {
-  font-family: Georgia, "Times New Roman", serif;
+.titulo-secao h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 46px;
   text-transform: uppercase;
-  font-size: 21px;
-  color: #06111f;
-  margin-bottom: 10px;
+  letter-spacing: 1px;
+  color: var(--azul);
+  margin-bottom: 14px;
 }
 
-.pilares p {
-  line-height: 1.6;
+.escura .titulo-secao h2 {
+  color: var(--dourado-2);
+}
+
+.titulo-secao p {
+  font-size: 19px;
+  line-height: 1.7;
   color: #374151;
 }
 
-/* =========================
-   SEÇÕES GERAIS
-========================= */
-
-.secao {
-  padding: 86px 4.5%;
+.escura .titulo-secao p {
+  color: var(--texto);
 }
 
-.secao h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 40px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 28px;
-}
-
-.intro {
-  font-size: 20px;
-  line-height: 1.7;
-  max-width: 1050px;
-  margin-bottom: 42px;
-}
-
-.escura {
-  background: #06111f;
-  color: #ffffff;
-}
-
-.escura h2 {
-  color: #d4af37;
-  text-align: center;
-}
-
-.escura .intro {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  color: #e5e7eb;
-}
-
-.clara {
-  background: #ffffff;
-  color: #111827;
-}
-
-.clara h2 {
-  color: #06111f;
-}
-
-/* =========================
-   PERÍCIAS
-========================= */
-
-.grid-areas {
+.cards {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 18px;
 }
 
-.grid-areas article {
-  background: linear-gradient(145deg, #0b1c32, #04101e);
-  border: 1px solid rgba(212,175,55,0.62);
-  border-radius: 14px;
-  padding: 24px;
-  min-height: 385px;
-  box-shadow: 0 16px 36px rgba(0,0,0,0.35);
-  transition: 0.25s ease;
+.card {
+  background: linear-gradient(145deg, #071b2f, #04101e);
+  border: 1px solid rgba(199,164,65,.55);
+  border-radius: 16px;
+  padding: 26px;
+  min-height: 360px;
+  color: var(--branco);
+  box-shadow: 0 18px 40px rgba(0,0,0,.24);
+  transition: .28s ease;
 }
 
-.grid-areas article:hover {
-  transform: translateY(-6px);
-  border-color: #d4af37;
-  box-shadow: 0 22px 46px rgba(0,0,0,0.48);
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--dourado-2);
+  box-shadow: 0 24px 55px rgba(0,0,0,.35);
 }
 
-.grid-areas h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  color: #d4af37;
-  font-size: 22px;
+.card .icone {
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(199,164,65,.65);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dourado);
+  font-size: 24px;
+  margin-bottom: 20px;
+  background: rgba(199,164,65,.08);
+}
+
+.card h3 {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--dourado-2);
+  font-size: 25px;
   margin-bottom: 18px;
 }
 
-.grid-areas ul {
-  padding-left: 20px;
-  line-height: 1.78;
+.card ul {
+  padding-left: 18px;
+  line-height: 1.8;
+  color: var(--texto);
   font-size: 14px;
-  color: #f8fafc;
 }
 
-.grid-areas li {
-  margin-bottom: 4px;
+.card li::marker {
+  color: var(--dourado);
 }
 
-.grid-areas li::marker {
-  color: #d4af37;
+#auditoria,
+#consultoria {
+  position: relative;
+  overflow: hidden;
 }
 
-/* =========================
-   CARDS
-========================= */
+#auditoria::before,
+#consultoria::before {
+  content: "BFO";
+  position: absolute;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 210px;
+  font-weight: 700;
+  color: rgba(255,255,255,.035);
+  right: 7%;
+  top: 10%;
+}
 
-.cards {
+#auditoria .titulo-secao,
+#consultoria .titulo-secao {
+  position: relative;
+  z-index: 2;
+}
+
+#sobre .titulo-secao {
+  max-width: 1150px;
+}
+
+#sobre .titulo-secao p {
+  text-align: left;
+  font-size: 19px;
+  line-height: 1.85;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(199,164,65,.35);
+  border-radius: 16px;
+  padding: 34px;
+}
+
+.linha-formacao {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 18px;
 }
 
-.cards article {
-  background: #06111f;
-  color: #ffffff;
+.linha-formacao article {
+  background: linear-gradient(145deg, #071b2f, #04101e);
+  border: 1px solid rgba(199,164,65,.55);
+  border-radius: 16px;
   padding: 26px;
-  border-radius: 12px;
-  border-top: 4px solid #d4af37;
-  min-height: 95px;
-  font-weight: bold;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.14);
+  color: var(--branco);
+  box-shadow: 0 18px 40px rgba(0,0,0,.18);
 }
 
-.cards article h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  color: #d4af37;
+.linha-formacao h3 {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--dourado-2);
+  font-size: 23px;
   margin-bottom: 12px;
-  font-size: 21px;
 }
 
-.cards article p {
-  font-weight: normal;
-  line-height: 1.6;
-  color: #e5e7eb;
+.linha-formacao p {
+  line-height: 1.65;
+  color: var(--texto);
 }
 
-.cards-escuros article {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(212,175,55,0.42);
-  border-top: 4px solid #d4af37;
-}
-
-/* =========================
-   TRAJETÓRIA
-========================= */
-
-.trajetoria-grid {
+.cursos-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 46px;
-  align-items: start;
+  grid-template-columns: repeat(2,1fr);
+  gap: 25px;
 }
 
-.trajetoria-grid p {
-  font-size: 18px;
-  line-height: 1.78;
+.cursos-grid article {
+  background: #ffffff;
+  border-left: 5px solid var(--dourado);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0,0,0,.10);
+  transition: .30s;
+}
+
+.cursos-grid article:hover {
+  transform: translateY(-8px);
+}
+
+.cursos-grid h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  color: var(--azul);
   margin-bottom: 18px;
-  color: #1f2937;
 }
 
-.linha-tempo {
-  border-left: 3px solid #d4af37;
-  padding-left: 28px;
+.cursos-grid ul {
+  padding-left: 22px;
+  line-height: 1.9;
 }
 
-.linha-tempo div {
-  position: relative;
-  background: #f8fafc;
-  border: 1px solid rgba(184,134,43,0.24);
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 26px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-}
-
-.linha-tempo div::before {
-  content: "";
-  position: absolute;
-  left: -39px;
-  top: 24px;
-  width: 18px;
-  height: 18px;
-  background: #d4af37;
-  border-radius: 50%;
-  box-shadow: 0 0 0 5px #fff;
-}
-
-.linha-tempo strong {
-  display: block;
-  font-size: 20px;
-  color: #06111f;
+.cursos-grid li {
   margin-bottom: 8px;
-}
-
-.linha-tempo span {
   color: #374151;
-  line-height: 1.55;
 }
 
-/* =========================
-   CURSOS / APERFEIÇOAMENTO
-========================= */
-
-.blocos-cursos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+.cursos-grid li::marker {
+  color: var(--dourado);
 }
-
-.blocos-cursos article {
-  background: #f8fafc;
-  border-left: 5px solid #d4af37;
-  border-radius: 12px;
-  padding: 28px;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.09);
-}
-
-.blocos-cursos h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  color: #06111f;
-  font-size: 22px;
-  margin-bottom: 18px;
-}
-
-.blocos-cursos ul {
-  padding-left: 20px;
-  line-height: 1.8;
-}
-
-.blocos-cursos li {
-  margin-bottom: 8px;
-  color: #1f2937;
-}
-
-.blocos-cursos li::marker {
-  color: #d4af37;
-}
-
-/* =========================
-   CERTIFICAÇÕES
-========================= */
 
 .certificacoes {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
   justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
 }
 
 .certificacoes span {
-  display: inline-block;
-  padding: 14px 28px;
-  border: 1px solid #d4af37;
+  padding: 16px 28px;
   border-radius: 40px;
-  background: rgba(255,255,255,0.06);
-  color: #d4af37;
-  font-weight: bold;
+  border: 1px solid var(--dourado);
+  background: rgba(199,164,65,.08);
+  color: var(--azul);
+  font-weight: 700;
   letter-spacing: 1px;
-  text-transform: uppercase;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
-}
-/* ==========================================================
-   STYLE.CSS - PARTE 3/3
-   Contato, rodapé, WhatsApp, responsividade e animações
-========================================================== */
-
-/* ===========================
-   TECNOLOGIAS
-=========================== */
-
-#tecnologias .cards article{
-    text-align:center;
-    font-size:18px;
+  transition: .30s;
 }
 
-/* ===========================
-   CONTATO
-=========================== */
-
-.contato{
-
-    background:#edf2f7;
-    color:#111827;
-    text-align:center;
-
+.certificacoes span:hover {
+  background: var(--dourado);
+  color: var(--azul);
+  transform: translateY(-4px);
 }
 
-.contato h2{
-
-    color:#06111f;
-
+.contato {
+  text-align: center;
 }
 
-.contato p{
-
-    font-size:19px;
-    margin:12px 0;
-    color:#374151;
-
+.contato p {
+  font-size: 19px;
+  margin: 12px;
+  color: #374151;
 }
 
-.contato-botoes{
-
-    justify-content:center;
-    margin-top:35px;
-
+.contato-botoes {
+  justify-content: center;
+  margin-top: 35px;
 }
 
-/* ===========================
-   BARRA FINAL
-=========================== */
-
-.barra-contato{
-
-    background:#08131f;
-    color:white;
-
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-
-    padding:22px 4.5%;
-
-    text-align:center;
-
-    border-top:1px solid rgba(212,175,55,.45);
-
+.whatsapp-fixo {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 9999;
+  animation: pulso 2s infinite;
 }
 
-.barra-contato div{
-
-    color:#d4af37;
-    font-weight:bold;
-    font-size:15px;
-
+.whatsapp-fixo img {
+  width: 72px;
+  height: 72px;
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0 10px 35px rgba(0,0,0,.35);
+  transition: .30s;
 }
 
-/* ===========================
-   RODAPÉ
-=========================== */
-
-footer{
-
-    background:#030b15;
-
-    color:#cbd5e1;
-
-    text-align:center;
-
-    padding:28px;
-
-    font-size:15px;
-
+.whatsapp-fixo img:hover {
+  transform: scale(1.10);
 }
 
-/* ===========================
-   WHATSAPP
-=========================== */
-
-.whatsapp-flutuante{
-
-    position:fixed;
-
-    right:25px;
-
-    bottom:25px;
-
-    width:62px;
-
-    height:62px;
-
-    border-radius:50%;
-
-    background:#25D366;
-
-    color:white;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-decoration:none;
-
-    font-size:15px;
-
-    font-weight:bold;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
-
-    transition:.30s;
-
-    z-index:9999;
-
+@keyframes pulso {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+  100% { transform: scale(1); }
 }
 
-.whatsapp-flutuante:hover{
-
-    transform:scale(1.08);
-
+.rodape {
+  background: #030d19;
+  text-align: center;
+  padding: 55px 20px;
+  border-top: 1px solid rgba(199,164,65,.35);
 }
 
-/* ===========================
-   ANIMAÇÕES
-=========================== */
-
-.grid-areas article,
-.cards article,
-.pilares article,
-.blocos-cursos article{
-
-    transition:.35s;
-
+.rodape-logo {
+  margin-bottom: 14px;
 }
 
-.grid-areas article:hover,
-.cards article:hover,
-.pilares article:hover,
-.blocos-cursos article:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 22px 50px rgba(0,0,0,.28);
-
+.rodape-logo img {
+  width: 155px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,.45));
 }
 
-/* ===========================
-   RESPONSIVO
-=========================== */
-
-@media(max-width:1400px){
-
-.hero{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
-padding-top:150px;
-
+.rodape p {
+  margin: 8px 0;
+  color: #cbd5e1;
 }
 
-.hero h1::after{
-
-margin:auto;
-margin-top:20px;
-
+.card,
+.linha-formacao article,
+.cursos-grid article {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: subir .8s forwards;
 }
 
-.hero-texto{
+.card:nth-child(2) { animation-delay: .10s; }
+.card:nth-child(3) { animation-delay: .20s; }
+.card:nth-child(4) { animation-delay: .30s; }
+.card:nth-child(5) { animation-delay: .40s; }
 
-max-width:900px;
-
-margin:auto;
-
+@keyframes subir {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.hero-imagem{
+@media (max-width: 1450px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 150px;
+  }
 
-order:2;
+  .hero h1::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
+  .hero-conteudo {
+    max-width: 950px;
+    margin: auto;
+  }
+
+  .hero-botoes {
+    justify-content: center;
+  }
+
+  .hero-foto {
+    order: 2;
+  }
+
+  .hero-painel {
+    order: 3;
+    max-width: 520px;
+    margin: 0 auto 45px;
+  }
+
+  .cards,
+  .linha-formacao {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.hero-imagem img{
+@media (max-width: 1150px) {
+  .menu {
+    display: none;
+  }
 
-max-width:420px;
+  .topo {
+    justify-content: space-between;
+  }
 
+  .marca {
+    min-width: auto;
+  }
+
+  .idiomas {
+    margin-left: auto;
+  }
+
+  .cursos-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.painel-lateral{
+@media (max-width: 850px) {
+  .topo {
+    height: auto;
+    padding: 14px 20px;
+  }
 
-order:3;
+  .logo-box {
+    width: 90px;
+  }
 
-max-width:450px;
+  .logo-img {
+    width: 88px;
+  }
 
-margin:auto;
+  .marca-texto strong {
+    font-size: 18px;
+  }
 
-margin-bottom:50px;
+  .marca-texto span {
+    font-size: 10px;
+  }
 
+  .hero {
+    padding: 135px 24px 45px;
+  }
+
+  .hero-bg-bfo {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    letter-spacing: 2px;
+  }
+
+  .hero-slogan {
+    font-size: 27px;
+  }
+
+  .hero-descricao {
+    font-size: 16px;
+  }
+
+  .foto-moldura img {
+    max-width: 350px;
+  }
+
+  .cards,
+  .linha-formacao {
+    grid-template-columns: 1fr;
+  }
+
+  .secao {
+    padding: 68px 24px;
+  }
+
+  .titulo-secao h2 {
+    font-size: 34px;
+  }
+
+  .titulo-secao p,
+  #sobre .titulo-secao p {
+    font-size: 17px;
+  }
+
+  .hero-painel {
+    width: 100%;
+  }
+
+  .botao {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-botoes {
+    width: 100%;
+  }
+
+  .certificacoes span {
+    width: 100%;
+    text-align: center;
+  }
+
+  .whatsapp-fixo img {
+    width: 58px;
+    height: 58px;
+  }
+
+  .whatsapp-fixo {
+    right: 18px;
+    bottom: 18px;
+  }
 }
 
-.grid-areas{
+@media (max-width: 520px) {
+  .marca-texto {
+    display: none;
+  }
 
-grid-template-columns:repeat(2,1fr);
+  .idioma {
+    padding: 6px 7px;
+    font-size: 11px;
+  }
 
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero-tag {
+    font-size: 12px;
+  }
+
+  .hero-slogan {
+    font-size: 24px;
+  }
+
+  .hero-painel {
+    padding: 18px;
+  }
+
+  .hero-painel p {
+    font-size: 13px;
+  }
+
+  .titulo-secao h2 {
+    font-size: 30px;
+  }
+
+  .card,
+  .linha-formacao article,
+  .cursos-grid article {
+    padding: 22px;
+  }
+
+  .rodape-logo img {
+    width: 120px;
+  }
 }
 
+.topo.reduzido {
+  height: 86px;
+  background: rgba(3, 12, 24, 0.98);
+  box-shadow: 0 12px 35px rgba(0,0,0,.45);
 }
 
-/* ========================= */
-
-@media(max-width:1000px){
-
-.menu{
-
-display:none;
-
+.topo.reduzido .logo-box {
+  transform: scale(.88);
 }
 
-.simbolos{
-
-display:none;
-
+.topo.reduzido .marca-texto span {
+  opacity: .75;
 }
+/*=========================================
+ESPECIALIDADES
+=========================================*/
 
-.identidade{
+.especialidades{
 
-min-width:auto;
+display:flex;
 
-}
+justify-content:center;
 
-.logo-bfo{
+flex-wrap:wrap;
 
-font-size:36px;
+gap:14px;
 
-}
-
-.hero{
-
-padding-top:130px;
-
-}
-
-.hero h1{
-
-font-size:42px;
-
-}
-
-.hero h2{
-
-font-size:22px;
-
-}
-
-.cards{
-
-grid-template-columns:1fr;
-
-}
-
-.grid-areas{
-
-grid-template-columns:1fr;
-
-}
-
-.blocos-cursos{
-
-grid-template-columns:1fr;
-
-}
-
-.trajetoria-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.pilares{
-
-grid-template-columns:1fr;
-
-}
-
-.barra-contato{
-
-grid-template-columns:1fr;
-
-gap:12px;
-
-}
-
-}
-
-/* ========================= */
-
-@media(max-width:700px){
-
-.marca-dagua{
-
-display:none;
+margin-top:30px;
 
 }
 
-.topo{
+.especialidades span{
 
-padding:18px;
+padding:12px 22px;
 
-height:auto;
+border:1px solid rgba(199,164,65,.45);
 
-}
+border-radius:30px;
 
-.logo-bfo{
+background:rgba(199,164,65,.08);
 
-font-size:30px;
+color:#ffffff;
 
-padding:8px 12px;
+font-weight:600;
 
-}
+font-size:15px;
 
-.nome-marca strong{
-
-font-size:18px;
+transition:.30s;
 
 }
 
-.nome-marca span{
+.especialidades span:hover{
 
-font-size:11px;
+background:var(--dourado);
 
-}
+color:var(--azul);
 
-.hero{
+transform:translateY(-3px);
 
-padding-top:150px;
-
-}
-
-.hero h1{
-
-font-size:34px;
+box-shadow:0 8px 20px rgba(199,164,65,.25);
 
 }
-
-.tag{
-
-font-size:13px;
-
+.texto-intro {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: var(--texto);
 }
 
-.descricao{
-
-font-size:17px;
-
+.lista-inline {
+  max-width: 1050px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.9;
+  font-weight: 600;
+  color: #ffffff;
 }
 
-.botao{
-
-width:100%;
-
-text-align:center;
-
+.escuro-texto {
+  color: var(--azul);
 }
-
-.hero-imagem img{
-
-max-width:320px;
-
-}
-
-}
-
-/* ===========================
-   FIM DO CSS
-=========================== */
