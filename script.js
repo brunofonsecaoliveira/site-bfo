@@ -130,7 +130,7 @@ const traducoes = {
     menuPericias: "Pericias",
     menuAuditoria: "Auditoría",
     menuConsultoria: "Consultoría",
-    menuSobre: "Sobre mí",
+    menuSobre: "Perfil",
     menuFormacao: "Formación",
     menuCursos: "Cursos",
     menuCertificacoes: "Certificaciones",
